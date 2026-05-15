@@ -204,7 +204,7 @@ h5{font-size:0.95rem;font-weight:600}
 .process-timeline{display:flex;justify-content:space-between;position:relative;gap:1rem}
 .process-timeline::before{content:'';position:absolute;top:28px;left:5%;right:5%;height:2px;background:var(--border);z-index:0}
 .p-step{display:flex;flex-direction:column;align-items:center;text-align:center;position:relative;z-index:1;flex:1;max-width:180px}
-.p-icon{width:56px;height:56px;border-radius:50%;background:var(--surface);border:2px solid var(--border);display:flex;align-items:center;justify-content:center;margin-bottom:0.8rem;position:relative;transition:var(--transition);color:var(--text-light)}
+.p-icon{width:56px;height:56px;border-radius:50%;background:var(--surface);border:2px solid var(--border);display:flex;align-items:center;justify-content:center;margin-bottom:0.8rem;position:relative;transition:var(--transition);color:#5a5651}
 .p-icon:hover{border-color:var(--copper);color:var(--copper);transform:scale(1.1)}
 .p-icon svg{width:24px;height:24px}
 .p-num{position:absolute;top:-6px;right:-6px;width:22px;height:22px;border-radius:50%;background:var(--copper);color:#fff;font-size:0.6rem;font-weight:700;display:flex;align-items:center;justify-content:center}
