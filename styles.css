@@ -136,7 +136,7 @@ h5{font-size:0.95rem;font-weight:600}
 .shader-badge-dot{width:6px;height:6px;border-radius:50%;background:var(--copper);box-shadow:0 0 14px var(--copper),0 0 4px var(--copper);animation:pulseDot 2.4s ease-in-out infinite}
 @keyframes pulseDot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.55;transform:scale(0.75)}}
 
-.shader-hero-content h1{font-size:clamp(2.4rem,5.6vw,4.4rem);color:#fff;letter-spacing:-0.035em;line-height:1.05;margin:0;text-shadow:0 2px 30px rgba(0,0,0,0.25)}
+.shader-hero-content h1{font-size:clamp(2.4rem,5.25vw,4.1rem);color:#fff;letter-spacing:-0.035em;line-height:1.06;margin:0;text-shadow:0 2px 30px rgba(0,0,0,0.25)}
 .shader-hero-content h1 em{font-style:normal;background:linear-gradient(135deg,#d79868 0%,var(--copper) 50%,#c98255 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
 .shader-hero-content>p{font-size:1.05rem;color:rgba(232,224,216,0.78);max-width:620px;line-height:1.7;margin:0}
 
