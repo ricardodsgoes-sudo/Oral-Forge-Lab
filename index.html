@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OralForge Lab | Laboratório de Prótese Dental</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Remova os comentários abaixo se desejar usar os ícones do Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <div class="logo-sub">
+                    OralForge Lab
+                    <span>Laboratório de Prótese Dental</span>
+                </div>
+            </a>
+            
+            <nav class="nav-links">
+                <a href="index.html" class="active">Início</a>
+                <div class="dropdown">
+                    <a href="index.html#solucoes" class="dropdown-toggle">Soluções <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></a>
+                    <div class="dropdown-menu">
+                        <a href="zirconia-ceramica.html">Zircônia e Cerâmica</a>
+                        <a href="sobre-implantes.html">Sobre Implantes</a>
+                        <a href="facetas.html">Facetas</a>
+                    </div>
+                </div>
+                <a href="ppr-removiveis.html">PPR & Removíveis</a>
+                <a href="tecnologias.html">Tecnologias</a>
+                <a href="casos.html">Casos</a>
+            </nav>
+
+            <a href="enviar-caso.html" class="btn btn-primary">
+                Enviar Caso
+                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            </a>
+
+            <button class="hamburger" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <nav class="mobile-menu">
+        <a href="index.html" class="active">Início</a>
+        <a href="index.html#solucoes">Soluções</a>
+        <div class="mobile-subnav">
+            <a href="zirconia-ceramica.html">Zircônia e Cerâmica</a>
+            <a href="sobre-implantes.html">Sobre Implantes</a>
+            <a href="facetas.html">Facetas</a>
+        </div>
+        <a href="ppr-removiveis.html">PPR & Removíveis</a>
+        <a href="tecnologias.html">Tecnologias</a>
+        <a href="casos.html">Casos</a>
+        <div class="mobile-cta">
+            <a href="enviar-caso.html" class="btn btn-primary">Enviar Caso</a>
+        </div>
+    </nav>
+
+    <!-- Hero (shader) -->
+    <section class="shader-hero">
+        <!-- SVG filter definitions -->
+        <svg class="shader-filters-svg" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs>
+                <filter id="shader-glass">
+                    <feTurbulence type="turbulence" baseFrequency="0.005" numOctaves="2" seed="2" result="noise"/>
+                    <feDisplacementMap in="SourceGraphic" in2="noise" scale="15" xChannelSelector="R" yChannelSelector="G" result="displaced"/>
+                    <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 15 -7" in="displaced"/>
+                </filter>
+                <filter id="shader-gooey">
+                    <feGaussianBlur stdDeviation="8" result="blur"/>
+                    <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 20 -10" in="blur"/>
+                </filter>
+            </defs>
+        </svg>
+
+        <!-- Shader background layers (Paper Shaders MeshGradient) -->
+        <div class="shader-layer" id="shaderLayer1"></div>
+        <div class="shader-layer shader-layer-gooey" id="shaderLayer2"></div>
+        <div class="shader-hero-vignette"></div>
+
+        <div class="container shader-hero-content">
+            <span class="shader-badge">
+                <span class="shader-badge-dot"></span>
+                LABORATÓRIO PARA DENTISTAS
+            </span>
+
+            <h1>Prótese dental feita com <em>critério</em>,<br> processo <br class="mobile-only-break">e acabamento.</h1>
+
+            <p>Um laboratório parceiro para transformar escaneamentos, modelos e planejamentos em peças protéticas com adaptação, rastreabilidade e acabamento conferidos antes da entrega.</p>
+
+            <div class="shader-hero-actions">
+                <a href="enviar-caso.html" class="btn btn-copper">
+                    Enviar um caso
+                    <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                </a>
+                <a href="index.html#solucoes" class="btn btn-glass">
+                    Nossas soluções
+                    <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </a>
+            </div>
+
+            <div class="shader-hero-trust">
+                <svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"></path></svg>
+                Triagem técnica para dentistas, clínicas e centros de reabilitação
+            </div>
+        </div>
+
+        <div class="shader-hero-scroll" aria-hidden="true">
+            <span></span>
+        </div>
+    </section>
+
+    <!-- Features Bar -->
+    <div class="container reveal">
+        <div class="features-bar">
+            <div class="fb-item">
+                <i class="ph ph-cube" style="font-size: 24px;"></i>
+                <div>
+                    <h5>PPR com desenho técnico</h5>
+                    <p>Conector, apoio e retenção definidos antes da estrutura.</p>
+                </div>
+            </div>
+            <div class="fb-item">
+                <i class="ph ph-infinity" style="font-size: 24px;"></i>
+                <div>
+                    <h5>Fluxo híbrido</h5>
+                    <p>Digital quando ajuda, bancada quando o detalhe pede mão.</p>
+                </div>
+            </div>
+            <div class="fb-item">
+                <i class="ph ph-printer-3d" style="font-size: 24px;"></i>
+                <div>
+                    <h5>Impressão 3D</h5>
+                    <p>Modelos, guias e provisórios com padrão reproduzível.</p>
+                </div>
+            </div>
+            <div class="fb-item">
+                <i class="ph ph-diamond" style="font-size: 24px;"></i>
+                <div>
+                    <h5>Zircônia & Cerâmica</h5>
+                    <p>Material indicado por espaço, substrato e exigência estética.</p>
+                </div>
+            </div>
+            <div class="fb-item">
+                <i class="ph ph-clock-countdown" style="font-size: 24px;"></i>
+                <div>
+                    <h5>Agenda de bancada</h5>
+                    <p>Entrada, prova e entrega combinadas com o fluxo da clínica.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Solutions -->
+    <section class="section" id="solucoes">
+        <div class="container">
+            <div class="section-header reveal">
+                <div>
+                    <span class="tag">VISÃO GERAL</span>
+                    <h2>O que o laboratório resolve<br>no dia a dia clínico.</h2>
+                    <p>Escolha pelo tipo de caso e entenda o que precisa chegar bem definido para a bancada produzir com previsibilidade.</p>
+                </div>
+                <a href="enviar-caso.html" class="view-all">
+                    Enviar um caso
+                    <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                </a>
+            </div>
+
+            <div class="solutions-grid">
+                <a href="zirconia-ceramica.html" class="sol-card reveal stagger-1">
+                    <div class="sol-img sol-img-dark"><img src="img/cards/zirconia.webp" alt="Zircônia"></div>
+                    <div class="sol-info">
+                        <span class="sol-kicker">Material e indicação</span>
+                        <h4>Zircônia</h4>
+                        <p>Coroas e estruturas para casos que pedem estabilidade e boa leitura de cor.</p>
+                    </div>
+                </a>
+                <a href="facetas.html" class="sol-card reveal stagger-2">
+                    <div class="sol-img"><img src="img/cards/facetas.webp" alt="Facetas"></div>
+                    <div class="sol-info">
+                        <span class="sol-kicker">Estética anterior</span>
+                        <h4>Facetas</h4>
+                        <p>Laminados e peças anteriores com forma, textura e valor bem controlados.</p>
+                    </div>
+                </a>
+                <a href="sobre-implantes.html" class="sol-card reveal stagger-3">
+                    <div class="sol-img"><img src="img/cards/implantes.webp" alt="Implantes"></div>
+                    <div class="sol-info">
+                        <span class="sol-kicker">Passividade e tecido</span>
+                        <h4>Implantes</h4>
+                        <p>Coroas, protocolos e componentes pensados para encaixe passivo.</p>
+                    </div>
+                </a>
+                <a href="ppr-removiveis.html" class="sol-card reveal stagger-4">
+                    <div class="sol-img"><img src="img/cards/ppr.png" alt="PPR / Removíveis"></div>
+                    <div class="sol-info">
+                        <span class="sol-kicker">Suporte e retenção</span>
+                        <h4>PPR / Removíveis</h4>
+                        <p>Removíveis com desenho de estrutura, retenção e suporte bem definidos.</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process -->
+    <section class="section process-wrapper">
+        <div class="container">
+            <div class="section-header reveal">
+                <div>
+                    <span class="tag">DA ENTRADA À ENTREGA</span>
+                    <h2>Como o caso passa pela bancada</h2>
+                    <p>Cada etapa reduz uma incerteza: indicação, desenho, produção, acabamento e conferência para entrega.</p>
+                </div>
+            </div>
+            
+            <div class="process-timeline reveal stagger-1">
+                <div class="p-step">
+                    <div class="p-icon">
+                        <span class="p-num">01</span>
+                        <i class="ph ph-package" style="font-size: 24px;"></i>
+                    </div>
+                    <h5>Triagem</h5>
+                    <p>Conferimos indicação, arquivos, fotos, cor, prazo e pontos críticos.</p>
+                </div>
+                <div class="p-step">
+                    <div class="p-icon">
+                        <span class="p-num">02</span>
+                        <i class="ph ph-desktop" style="font-size: 24px;"></i>
+                    </div>
+                    <h5>Desenho</h5>
+                    <p>Definimos espessura, contatos, suporte, eixo de inserção e material.</p>
+                </div>
+                <div class="p-step">
+                    <div class="p-icon">
+                        <span class="p-num">03</span>
+                        <i class="ph ph-magic-wand" style="font-size: 24px;"></i>
+                    </div>
+                    <h5>Produção</h5>
+                    <p>Usinamos, imprimimos, fundimos ou estratificamos conforme o serviço.</p>
+                </div>
+                <div class="p-step">
+                    <div class="p-icon">
+                        <span class="p-num">04</span>
+                        <i class="ph ph-diamond" style="font-size: 24px;"></i>
+                    </div>
+                    <h5>Acabamento</h5>
+                    <p>Ajustamos anatomia, textura, polimento, cor e pontos de contato.</p>
+                </div>
+                <div class="p-step">
+                    <div class="p-icon">
+                        <span class="p-num">05</span>
+                        <i class="ph ph-truck" style="font-size: 24px;"></i>
+                    </div>
+                    <h5>Liberação</h5>
+                    <p>O caso sai embalado, identificado e pronto para conferência clínica.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PPR Highlight -->
+    <section class="section">
+        <div class="container">
+            <div class="ppr-highlight reveal">
+                <div class="ppr-content">
+                    <span class="tag">ESPECIALISTAS EM</span>
+                    <h2>PPR / Removíveis</h2>
+                    <p>PPR exige mais do que uma estrutura bonita. O desenho precisa distribuir suporte, controlar retenção e respeitar tecidos para reduzir ajustes desnecessários na clínica.</p>
+                    
+                    <div class="ppr-features">
+                        <span><i class="ph-fill ph-check-circle"></i> Eixo de inserção planejado</span>
+                        <span><i class="ph-fill ph-check-circle"></i> Materiais selecionados</span>
+                        <span><i class="ph-fill ph-check-circle"></i> Apoios e grampos definidos</span>
+                        <span><i class="ph-fill ph-check-circle"></i> Polimento de áreas críticas</span>
+                    </div>
+                    
+                    <a href="ppr-removiveis.html" class="btn btn-outline-light">
+                        Saiba mais sobre PPR
+                        <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    </a>
+                </div>
+                <div class="ppr-img">
+                    <img src="img/cards/especialista-em-card.png" alt="PPR / Removíveis">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cases -->
+    <section class="section" id="casos-home">
+        <div class="container">
+            <div class="section-header reveal">
+                <div>
+                    <span class="tag">AMOSTRAS DE ENTREGA</span>
+                    <h2>Casos para entender o padrão do laboratório.</h2>
+                    <p>Exemplos visuais ajudam a alinhar expectativa de forma, acabamento, gengiva artificial e discrição de retentores.</p>
+                </div>
+                <a href="casos.html" class="view-all">
+                    Ver mais casos
+                    <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                </a>
+            </div>
+
+            <div class="cases-scroll reveal stagger-1">
+                <!-- Case 1 -->
+                <div class="case-card">
+                    <div class="case-imgs">
+                        <span class="case-label before">Antes</span>
+                        <span class="case-label after">Depois</span>
+                        <img src="img/casos/protocolo-implantes-antes.webp" style="object-position: center; filter: grayscale(50%);" alt="Antes do protocolo sobre implantes">
+                        <img src="img/casos/protocolo-implantes-depois.webp" style="object-position: center;" alt="Depois do protocolo sobre implantes">
+                    </div>
+                    <div class="case-info">
+                        <h5>Protocolo sobre implantes</h5>
+                        <p>Estrutura extensa com passividade, suporte labial e acabamento gengival conferidos.</p>
+                        <span class="case-tag">Implantes</span>
+                    </div>
+                </div>
+                <!-- Case 2 -->
+                <div class="case-card">
+                    <div class="case-imgs">
+                        <span class="case-label before">Antes</span>
+                        <span class="case-label after">Depois</span>
+                        <img src="img/casos/facetas-zirconia-antes.webp" style="object-position: center; filter: grayscale(50%);" alt="Antes das facetas em zircônia">
+                        <img src="img/casos/facetas-zirconia-depois.webp" style="object-position: center;" alt="Depois das facetas em zircônia">
+                    </div>
+                    <div class="case-info">
+                        <h5>Facetas em zircônia</h5>
+                        <p>Peças anteriores com ajuste de forma, textura, borda incisal e valor.</p>
+                        <span class="case-tag">Facetas</span>
+                    </div>
+                </div>
+                <!-- Case 3 -->
+                <div class="case-card">
+                    <div class="case-imgs">
+                        <span class="case-label before">Antes</span>
+                        <span class="case-label after">Depois</span>
+                        <img src="img/casos/ppr-gancho-estetico-antes.webp" style="object-position: center; filter: grayscale(50%);" alt="Antes da PPR com gancho estético">
+                        <img src="img/casos/ppr-gancho-estetico-depois.webp" style="object-position: center;" alt="Depois da PPR com gancho estético">
+                    </div>
+                    <div class="case-info">
+                        <h5>PPR com gancho estético</h5>
+                        <p>Retenção discreta, eixo de inserção e sela pensados para assentamento clínico.</p>
+                        <span class="case-tag">PPR / Removíveis</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <div class="container reveal">
+        <div class="cta-banner">
+            <div class="cta-banner-text">
+                <div class="cta-title-row">
+                    <div class="cta-icon">
+                        <i class="ph ph-file-text" style="font-size: 24px; color: var(--copper);"></i>
+                    </div>
+                    <h3>Tem um caso para produzir?</h3>
+                </div>
+                <p>Envie escaneamento, modelo, fotos, cor, antagonista e observações. A equipe técnica confere o material recebido e retorna com o próximo passo.</p>
+            </div>
+            <a href="enviar-caso.html" class="btn btn-white">
+                Enviar meu caso agora
+                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            </a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="index.html" class="logo" style="margin-bottom: 1rem; color: #fff;">
+                        <div class="logo-sub">
+                            OralForge Lab
+                            <span>Laboratório de Prótese Dental</span>
+                        </div>
+                    </a>
+                    <p style="font-size: 0.8rem; color: var(--text-dark-muted); line-height: 1.5; margin-bottom: 1.5rem; max-width: 280px;">
+                        Excelência em prótese laboratorial com tecnologia, técnica e compromisso com resultados previsíveis.
+                    </p>
+                    <div class="social-links">
+                        <a href="https://wa.me/5511999999999?text=Ola%2C%20gostaria%20de%20falar%20com%20um%20especialista%20do%20OralForge%20Lab." aria-label="Falar com o OralForge Lab pelo WhatsApp"><i class="ph ph-whatsapp-logo"></i></a>
+                        <a href="mailto:contato@oralforgelab.com.br" aria-label="Enviar e-mail para o OralForge Lab"><i class="ph ph-envelope-simple"></i></a>
+                        <a href="tel:+5511999999999" aria-label="Ligar para o OralForge Lab"><i class="ph ph-phone"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h5>Contato</h5>
+                    <div class="contact-info">
+                        <div class="c-item">
+                            <i class="ph ph-phone"></i>
+                            (11) 99999-9999
+                        </div>
+                        <div class="c-item">
+                            <i class="ph ph-envelope-simple"></i>
+                            contato@oralforgelab.com.br
+                        </div>
+                        <div class="c-item">
+                            <i class="ph ph-clock"></i>
+                            Seg. a Sex: 8h às 18h
+                        </div>
+                        <div class="c-item">
+                            <i class="ph ph-map-pin"></i>
+                            São Paulo - SP
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h5>Links rápidos</h5>
+                    <div class="footer-links">
+                        <a href="index.html">Início</a>
+                        <a href="index.html#solucoes">Soluções</a>
+                        <a href="ppr-removiveis.html">PPR & Removíveis</a>
+                        <a href="tecnologias.html">Tecnologias</a>
+                        <a href="casos.html">Casos</a>
+                        <a href="enviar-caso.html">Enviar Caso</a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h5>Soluções</h5>
+                    <div class="footer-links">
+                        <a href="zirconia-ceramica.html">Zircônia e Cerâmica</a>
+                        <a href="sobre-implantes.html">Sobre Implantes</a>
+                        <a href="facetas.html">Facetas</a>
+                        <a href="ppr-removiveis.html">PPR & Removíveis</a>
+                        <a href="tecnologias.html">Fluxo Digital</a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h5>Certificações</h5>
+                    <div class="footer-certs">
+                        <div class="cert-badge">ISO<br>13485</div>
+                        <div class="cert-badge">ANVISA<br>BPF</div>
+                    </div>
+                    <p style="font-size: 0.7rem; color: var(--text-dark-muted); margin-top: 1rem;">Materiais e processos com rastreabilidade e qualidade.</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                &copy; 2026 OralForge Lab. Todos os direitos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
