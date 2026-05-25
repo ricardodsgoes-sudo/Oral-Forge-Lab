@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    <title>Enviar Caso - OralForge Lab</title>
+    <meta name="description" content="Envie casos protéticos para o OralForge Lab com prescrição, arquivos, fotos, cor, prazo e observações técnicas para triagem da bancada.">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../pages.css">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container nav-container">
+            <a href="../index.html" class="logo">
+                <div class="logo-sub">
+                    OralForge Lab
+                    <span>Laboratório de Prótese Dental</span>
+                </div>
+            </a>
+            
+            <nav class="nav-links">
+                <a href="../index.html">Início</a>
+                <div class="dropdown">
+                    <a href="../index.html#solucoes" class="dropdown-toggle">Soluções <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></a>
+                    <div class="dropdown-menu">
+                        <a href="zirconia-ceramica.html">Zircônia e Cerâmica</a>
+                        <a href="sobre-implantes.html">Sobre Implantes</a>
+                        <a href="facetas.html">Facetas</a>
+                    </div>
+                </div>
+                <a href="ppr-removiveis.html">PPR & Removíveis</a>
+                <a href="tecnologias.html">Tecnologias</a>
+                <a href="casos.html">Casos</a>
+            </nav>
+
+            <a href="enviar-caso.html" class="btn btn-primary active">
+                Enviar Caso
+                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            </a>
+
+            <button class="hamburger" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <nav class="mobile-menu">
+        <a href="../index.html">Início</a>
+        <a href="../index.html#solucoes">Soluções</a>
+        <div class="mobile-subnav">
+            <a href="zirconia-ceramica.html">Zircônia e Cerâmica</a>
+            <a href="sobre-implantes.html">Sobre Implantes</a>
+            <a href="facetas.html">Facetas</a>
+        </div>
+        <a href="ppr-removiveis.html">PPR & Removíveis</a>
+        <a href="tecnologias.html">Tecnologias</a>
+        <a href="casos.html">Casos</a>
+        <div class="mobile-cta">
+            <a href="enviar-caso.html" class="btn btn-primary">Enviar Caso</a>
+        </div>
+    </nav>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="container page-hero-inner">
+            <div class="reveal reveal-left">
+                <span class="tag">ENVIO DE CASO PARA PRODUÇÃO</span>
+                <h1>Mande as informações certas para a bancada começar bem.</h1>
+                <p>Use esta página para enviar prescrição, arquivos digitais, fotos, prazo, cor e observações clínicas. Quanto mais claro o pedido, menor a chance de retrabalho.</p>
+                <div class="hero-actions" style="margin-top: 2rem;">
+                    <a href="#form-section" class="btn btn-primary">
+                        Enviar meu caso
+                        <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    </a>
+                    <a href="#checklist-section" class="btn btn-outline">
+                        Ver checklist
+                        <i class="ph ph-clipboard-text"></i>
+                    </a>
+                </div>
+                <div class="hero-trust" style="margin-top: 1.5rem;">
+                    <i class="ph-fill ph-lock-key"></i> Dados do paciente devem ser enviados apenas com as informações necessárias ao caso.
+                </div>
+            </div>
+            <div class="hero-visual case-intake-visual reveal reveal-right stagger-1" aria-label="Painel de triagem de caso">
+                <div class="case-intake-panel">
+                    <div class="intake-panel-header">
+                        <span>Triagem de entrada</span>
+                        <strong>Antes de iniciar a bancada</strong>
+                    </div>
+                    <div class="intake-row is-complete">
+                        <i class="ph ph-check-circle"></i>
+                        <div>
+                            <strong>Arquivos digitais</strong>
+                            <span>STL, PLY, OBJ, PDF ou DICOM conferidos.</span>
+                        </div>
+                    </div>
+                    <div class="intake-row is-complete">
+                        <i class="ph ph-check-circle"></i>
+                        <div>
+                            <strong>Fotos e cor</strong>
+                            <span>Referências de valor, escala e área estética.</span>
+                        </div>
+                    </div>
+                    <div class="intake-row">
+                        <i class="ph ph-clock-countdown"></i>
+                        <div>
+                            <strong>Prazo e etapa</strong>
+                            <span>Produção, prova, ajuste ou reparo.</span>
+                        </div>
+                    </div>
+                    <div class="intake-row">
+                        <i class="ph ph-warning-circle"></i>
+                        <div>
+                            <strong>Pontos críticos</strong>
+                            <span>Espaço reduzido, implante, PPR ou contato.</span>
+                        </div>
+                    </div>
+                    <div class="intake-status-strip">
+                        <span><i class="ph ph-lock-key"></i> Dados mínimos</span>
+                        <span><i class="ph ph-headset"></i> Retorno técnico</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Type of Case -->
+    <section class="section case-type-section" style="padding-top: 0;">
+        <div class="container reveal">
+            <div class="section-header">
+                <div>
+                    <span class="tag">ESCOLHA O TIPO DE CASO</span>
+                    <h2>O envio muda conforme o trabalho que vai para a bancada.</h2>
+                </div>
+                <p>Use estes caminhos como lembrete do que costuma faltar em cada tipo de caso.</p>
+            </div>
+            <div class="case-types">
+                <div class="type-card">
+                    <i class="ph ph-scan" style="font-size: 32px;"></i>
+                    <div>
+                        <h5>Fluxo Digital</h5>
+                        <p>STL, PLY, OBJ, fotos, DICOM ou prescrição digital.</p>
+                    </div>
+                    <i class="ph ph-arrow-right" style="margin-top: auto; color: var(--text-light);"></i>
+                </div>
+                <div class="type-card">
+                    <i class="ph ph-cube" style="font-size: 32px;"></i>
+                    <div>
+                        <h5>Convencional</h5>
+                        <p>Modelo, registro de mordida, cor e orientação clínica.</p>
+                    </div>
+                    <i class="ph ph-arrow-right" style="margin-top: auto; color: var(--text-light);"></i>
+                </div>
+                <div class="type-card">
+                    <i class="ph ph-tooth" style="font-size: 32px;"></i>
+                    <div>
+                        <h5>Sobre Implante</h5>
+                        <p>Coroa, componente, protocolo, guia ou provisório.</p>
+                    </div>
+                    <i class="ph ph-arrow-right" style="margin-top: auto; color: var(--text-light);"></i>
+                </div>
+                <div class="type-card">
+                    <i class="ph ph-intersect" style="font-size: 32px;"></i>
+                    <div>
+                        <h5>PPR / Removível</h5>
+                        <p>Pilares, áreas retentivas, cor, montagem e observações.</p>
+                    </div>
+                    <i class="ph ph-arrow-right" style="margin-top: auto; color: var(--text-light);"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Requirements & Upload -->
+    <section class="section checklist-section" id="checklist-section">
+        <div class="container reveal">
+            <div class="requirements-grid">
+                <div>
+                    <span class="tag">CHECKLIST ANTES DE ENVIAR</span>
+                    <h3 class="checklist-title">Inclua o que a bancada precisa para não parar o caso:</h3>
+                    
+                    <div class="req-list">
+                        <div class="req-item">
+                            <i class="ph-fill ph-check-circle"></i>
+                            <div>
+                                <h5>Tipo de prótese / serviço</h5>
+                                <p>Coroa, PPR, guia, provisório, protocolo ou reparo.</p>
+                            </div>
+                        </div>
+                        <div class="req-item">
+                            <i class="ph-fill ph-check-circle"></i>
+                            <div>
+                                <h5>Identificação do caso</h5>
+                                <p>Use apenas o nome ou código interno necessário para acompanhamento.</p>
+                            </div>
+                        </div>
+                        <div class="req-item">
+                            <i class="ph-fill ph-check-circle"></i>
+                            <div>
+                                <h5>Material indicado</h5>
+                                <p>Zircônia, cerâmica, resina, metal, acrílico ou sistema de implante.</p>
+                            </div>
+                        </div>
+                        <div class="req-item">
+                            <i class="ph-fill ph-check-circle"></i>
+                            <div>
+                                <h5>Prazo desejado</h5>
+                                <p>Informe a necessidade real para avaliarmos a agenda.</p>
+                            </div>
+                        </div>
+                        <div class="req-item">
+                            <i class="ph-fill ph-check-circle"></i>
+                            <div>
+                                <h5>Cor / Tom / Escala</h5>
+                                <p>Inclua escala, foto de referência e observações de valor quando houver.</p>
+                            </div>
+                        </div>
+                        <div class="req-item">
+                            <i class="ph-fill ph-check-circle"></i>
+                            <div>
+                                <h5>Observações</h5>
+                                <p>Espaço reduzido, área estética, ajuste, prova ou urgência.</p>
+                            </div>
+                        </div>
+                        <div class="req-item">
+                            <i class="ph-fill ph-check-circle"></i>
+                            <div>
+                                <h5>Arquivos e fotos</h5>
+                                <p>Arquivos 3D, fotos intraorais, Rx, tomografia ou desenho do planejamento.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <span class="tag">ANEXE ARQUIVOS E FOTOS</span>
+                    <div class="upload-box">
+                        <i class="ph ph-cloud-arrow-up" style="font-size: 48px;"></i>
+                        <h5>Arraste e solte seus arquivos aqui</h5>
+                        <p>ou clique para selecionar</p>
+                        <p style="font-size: 0.7rem; margin-bottom: 0;">Formatos aceitos: STL, PLY, OBJ, JPG, PNG, PDF, DICOM</p>
+                        <p style="font-size: 0.7rem;">Tamanho máximo: 500MB por arquivo</p>
+                        <label for="case-files" class="btn btn-dark btn-sm">Selecionar arquivos</label>
+                        <input id="case-files" name="arquivos" type="file" multiple accept=".stl,.ply,.obj,.jpg,.jpeg,.png,.pdf,.dcm,.dicom" class="sr-only">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Form Section -->
+    <section class="section" id="form-section">
+        <div class="container reveal">
+            <div class="form-section">                <form class="form-box" onsubmit="event.preventDefault(); alert('Solicitação recebida. O laboratório vai retornar para confirmar os detalhes do caso.');">
+                    <h4>ENVIO RÁPIDO DO CASO</h4>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="sender-name">Nome do responsável <span>*</span></label>
+                            <input id="sender-name" name="nome" type="text" placeholder="Seu nome" autocomplete="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="sender-phone">WhatsApp <span>*</span></label>
+                            <input id="sender-phone" name="telefone" type="tel" placeholder="(11) 99999-9999" autocomplete="tel" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="sender-clinic">Clínica / CRO</label>
+                            <input id="sender-clinic" name="clinica_cro" type="text" placeholder="Nome da clínica ou CRO" autocomplete="organization">
+                        </div>
+                        <div class="form-group">
+                            <label for="sender-email">E-mail</label>
+                            <input id="sender-email" name="email" type="email" placeholder="seu@email.com" autocomplete="email">
+                        </div>
+                        <div class="form-group">
+                            <label for="case-service">Peça ou serviço <span>*</span></label>
+                            <select id="case-service" name="servico" required>
+                                <option value="" disabled selected>Selecione o serviço</option>
+                                <option>Zircônia / cerâmica</option>
+                                <option>Implante / protocolo</option>
+                                <option>Faceta / laminado</option>
+                                <option>PPR / removível</option>
+                                <option>Guia, placa ou modelo</option>
+                                <option>Reparo ou ajuste</option>
+                                <option>Ainda não sei definir</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="case-deadline">Prazo desejado</label>
+                            <input id="case-deadline" name="prazo" type="date">
+                        </div>
+                        <div class="form-group full">
+                            <label for="case-notes">O que precisa ser feito? <span>*</span></label>
+                            <textarea id="case-notes" name="observacoes" placeholder="Ex: cor desejada, região, material preferido, sistema de implante, urgência, prova antes de finalizar..." required></textarea>
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="reset" class="btn btn-outline">
+                            <i class="ph ph-trash"></i> Limpar formulário
+                        </button>
+                        <button type="submit" class="btn btn-primary">
+                            Enviar meu caso agora
+                            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                        </button>
+                    </div>
+                </form>
+
+                <!-- Support Sidebar -->
+                <div class="support-box">
+                    <h4>Precisa confirmar algo?</h4>
+                    <p class="support-lead">Use estes canais antes de enviar um caso incompleto.</p>
+                    
+                    <div class="support-list">
+                        <div class="support-item">
+                            <div class="support-icon"><i class="ph ph-whatsapp-logo" style="font-size: 20px;"></i></div>
+                            <div class="support-text">
+                                <h5>WhatsApp</h5>
+                                <p>Clique para conversar</p>
+                            </div>
+                        </div>
+                        <div class="support-item">
+                            <div class="support-icon"><i class="ph ph-phone" style="font-size: 20px;"></i></div>
+                            <div class="support-text">
+                                <h5>Telefone</h5>
+                                <p>(11) 4138-8200</p>
+                            </div>
+                        </div>
+                        <div class="support-item">
+                            <div class="support-icon"><i class="ph ph-envelope-simple" style="font-size: 20px;"></i></div>
+                            <div class="support-text">
+                                <h5>E-mail</h5>
+                                <p>contato@oralforgelab.com.br</p>
+                            </div>
+                        </div>
+                        <div class="support-item">
+                            <div class="support-icon"><i class="ph ph-map-pin" style="font-size: 20px;"></i></div>
+                            <div class="support-text">
+                                <h5>Endereço</h5>
+                                <p>Rua das Indústrias, 120<br>Vila Metalúrgica - São Paulo/SP</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="support-note">
+                        <i class="ph ph-info" style="color: var(--copper); font-size: 20px;"></i>
+                        <p>Após o envio, a equipe confere os arquivos e chama você se faltar alguma informação para iniciar a produção.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Features -->
+    <div class="container reveal">
+        <div class="submission-assurance">
+            <div class="assurance-item">
+                <div class="p-icon"><i class="ph ph-shield-check"></i></div>
+                <div>
+                    <h5>Informação mínima necessária</h5>
+                    <p>Envie apenas dados úteis para identificação e execução do trabalho protético.</p>
+                </div>
+            </div>
+            <div class="assurance-item">
+                <div class="p-icon"><i class="ph ph-clock-countdown"></i></div>
+                <div>
+                    <h5>Prazo combinado</h5>
+                    <p>A data informada passa por triagem conforme serviço, material e agenda de bancada.</p>
+                </div>
+            </div>
+            <div class="assurance-item">
+                <div class="p-icon"><i class="ph ph-headset"></i></div>
+                <div>
+                    <h5>Retorno técnico</h5>
+                    <p>Se houver dúvida de arquivo, margem, cor ou indicação, falamos antes de produzir.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="container reveal">
+        <div class="cta-banner">
+            <div class="cta-banner-text">
+                <div class="cta-title-row">
+                    <div class="cta-icon">
+                        <i class="ph ph-file-text" style="font-size: 24px; color: var(--copper);"></i>
+                    </div>
+                    <h3>Pronto para enviar?</h3>
+                </div>
+                <p>Revise prescrição, arquivos, fotos, cor e prazo antes de concluir o formulário.</p>
+            </div>
+            <a href="enviar-caso.html" class="btn btn-white">
+                Enviar meu caso agora
+                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            </a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="../index.html" class="logo" style="margin-bottom: 1rem; color: #fff;">
+                        <div class="logo-sub">
+                            OralForge Lab
+                            <span>Laboratório de Prótese Dental</span>
+                        </div>
+                    </a>
+                    <p style="font-size: 0.8rem; color: var(--text-dark-muted); line-height: 1.5; margin-bottom: 1.5rem; max-width: 280px;">
+                        Excelência em prótese laboratorial com tecnologia, técnica e compromisso com resultados previsíveis.
+                    </p>
+                    <div class="social-links">
+                        <a href="https://wa.me/5511999999999?text=Ola%2C%20gostaria%20de%20falar%20com%20um%20especialista%20do%20OralForge%20Lab." aria-label="Falar com o OralForge Lab pelo WhatsApp"><i class="ph ph-whatsapp-logo"></i></a>
+                        <a href="mailto:contato@oralforgelab.com.br" aria-label="Enviar e-mail para o OralForge Lab"><i class="ph ph-envelope-simple"></i></a>
+                        <a href="tel:+5511999999999" aria-label="Ligar para o OralForge Lab"><i class="ph ph-phone"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h5>Contato</h5>
+                    <div class="contact-info">
+                        <div class="c-item"><i class="ph ph-phone"></i>(11) 99999-9999</div>
+                        <div class="c-item"><i class="ph ph-envelope-simple"></i>contato@oralforgelab.com.br</div>
+                        <div class="c-item"><i class="ph ph-clock"></i>Seg. a Sex: 8h às 18h</div>
+                        <div class="c-item"><i class="ph ph-map-pin"></i>São Paulo - SP</div>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h5>Links rápidos</h5>
+                    <div class="footer-links">
+                        <a href="../index.html">Início</a>
+                        <a href="../index.html#solucoes">Soluções</a>
+                        <a href="ppr-removiveis.html">PPR & Removíveis</a>
+                        <a href="tecnologias.html">Tecnologias</a>
+                        <a href="casos.html">Casos</a>
+                        <a href="enviar-caso.html">Enviar Caso</a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h5>Soluções</h5>
+                    <div class="footer-links">
+                        <a href="zirconia-ceramica.html">Zircônia e Cerâmica</a>
+                        <a href="sobre-implantes.html">Sobre Implantes</a>
+                        <a href="facetas.html">Facetas</a>
+                        <a href="ppr-removiveis.html">PPR & Removíveis</a>
+                        <a href="tecnologias.html">Fluxo Digital</a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h5>Certificações</h5>
+                    <div class="footer-certs">
+                        <div class="cert-badge">ISO<br>13485</div>
+                        <div class="cert-badge">ANVISA<br>BPF</div>
+                    </div>
+                    <p style="font-size: 0.7rem; color: var(--text-dark-muted); margin-top: 1rem;">Materiais e processos com rastreabilidade e qualidade.</p>
+                </div>
+            </div>
+            <div class="footer-bottom">&copy; 2026 OralForge Lab. Todos os direitos reservados.</div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
+    <script src="../script.js"></script>
+</body>
+</html>
+

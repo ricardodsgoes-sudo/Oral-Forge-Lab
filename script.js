@@ -1,4 +1,21 @@
 document.addEventListener('DOMContentLoaded', () => {
+  // ═══ LENIS SMOOTH SCROLL ═══
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let lenis = null;
+  if (window.Lenis && !reducedMotion) {
+    lenis = new Lenis({
+      duration: 1.15,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      smoothWheel: true,
+      smoothTouch: false,
+      touchMultiplier: 1.2,
+      wheelMultiplier: 1,
+    });
+    const lenisRaf = (time) => { lenis.raf(time); requestAnimationFrame(lenisRaf); };
+    requestAnimationFrame(lenisRaf);
+    window.lenis = lenis;
+  }
+
   // ═══ SCROLL REVEAL ═══
   const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
   const revealObs = new IntersectionObserver((entries) => {
@@ -38,17 +55,36 @@ document.addEventListener('DOMContentLoaded', () => {
   const hamburger = document.querySelector('.hamburger');
   const mobileMenu = document.querySelector('.mobile-menu');
   if (hamburger && mobileMenu) {
+    const closeMenu = () => {
+      hamburger.classList.remove('active');
+      mobileMenu.classList.remove('active');
+      document.body.style.overflow = '';
+      if (lenis) lenis.start();
+    };
+    const openMenu = () => {
+      hamburger.classList.add('active');
+      mobileMenu.classList.add('active');
+      document.body.style.overflow = 'hidden';
+      if (lenis) lenis.stop();
+    };
+
+    // Injeta botão de fechar (X) dentro do menu mobile
+    if (!mobileMenu.querySelector('.mobile-close')) {
+      const closeBtn = document.createElement('button');
+      closeBtn.className = 'mobile-close';
+      closeBtn.type = 'button';
+      closeBtn.setAttribute('aria-label', 'Fechar menu');
+      closeBtn.innerHTML = '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>';
+      closeBtn.addEventListener('click', closeMenu);
+      mobileMenu.prepend(closeBtn);
+    }
+
     hamburger.addEventListener('click', () => {
-      hamburger.classList.toggle('active');
-      mobileMenu.classList.toggle('active');
-      document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+      if (mobileMenu.classList.contains('active')) closeMenu(); else openMenu();
     });
-    mobileMenu.querySelectorAll('a').forEach(a => {
-      a.addEventListener('click', () => {
-        hamburger.classList.remove('active');
-        mobileMenu.classList.remove('active');
-        document.body.style.overflow = '';
-      });
+    mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && mobileMenu.classList.contains('active')) closeMenu();
     });
   }
 
@@ -86,15 +122,16 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // ═══ SMOOTH SCROLL FOR ANCHORS ═══
+  // ═══ SMOOTH SCROLL FOR ANCHORS (Lenis-aware) ═══
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', (e) => {
       const id = a.getAttribute('href');
-      if (id === '#') return;
+      if (!id || id === '#') return;
       const target = document.querySelector(id);
       if (target) {
         e.preventDefault();
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        if (lenis) lenis.scrollTo(target, { offset: -80, duration: 1.4 });
+        else target.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
     });
   });
@@ -106,17 +143,51 @@ document.addEventListener('DOMContentLoaded', () => {
     heroH1.style.transform = 'translateY(0)';
   }
 
-  // ═══ PARALLAX ON HERO FLOATS ═══
-  const floatCards = document.querySelectorAll('.float-card');
-  if (floatCards.length > 0) {
-    window.addEventListener('scroll', () => {
-      const scrollY = window.scrollY;
-      floatCards.forEach((card, i) => {
-        const speed = 0.03 + (i * 0.015);
-        card.style.transform = `translateY(${-scrollY * speed}px)`;
-      });
+  // ═══ PARALLAX UNIFICADO ═══
+  const parallaxItems = [];
+  const pxRegister = (el, speed, scale = 1) => {
+    parallaxItems.push({ el, speed, scale, baseTransform: scale !== 1 ? ` scale(${scale})` : '' });
+    el.style.willChange = 'transform';
+    if (scale !== 1) el.style.transform = `translate3d(0,0,0) scale(${scale})`;
+  };
+
+  if (!reducedMotion) {
+    // Imagens de hero (home + páginas internas) — exclui o comparador antes/depois
+    document.querySelectorAll('.hero-img-main img').forEach(img => {
+      if (img.closest('.case-imgs')) return;
+      pxRegister(img, 0.08, 1.1);
+    });
+    // Imagem do bloco PPR
+    document.querySelectorAll('.ppr-img img').forEach(img => pxRegister(img, 0.08, 1.08));
+    // Float cards do hero
+    document.querySelectorAll('.float-card').forEach((card, i) => {
+      pxRegister(card, 0.06 + i * 0.025);
+    });
+    // Conteúdo opcional via data-parallax="0.12"
+    document.querySelectorAll('[data-parallax]').forEach(el => {
+      pxRegister(el, parseFloat(el.dataset.parallax) || 0.1);
     });
   }
+
+  const applyParallax = () => {
+    const vh = window.innerHeight;
+    for (const item of parallaxItems) {
+      const rect = item.el.getBoundingClientRect();
+      if (rect.bottom < -200 || rect.top > vh + 200) continue;
+      const center = rect.top + rect.height / 2 - vh / 2;
+      const offset = -center * item.speed;
+      item.el.style.transform = `translate3d(0, ${offset.toFixed(2)}px, 0)${item.baseTransform}`;
+    }
+  };
+  let pxRaf = 0;
+  const pxRequest = () => {
+    if (pxRaf) return;
+    pxRaf = requestAnimationFrame(() => { pxRaf = 0; applyParallax(); });
+  };
+  if (lenis) lenis.on('scroll', pxRequest);
+  else window.addEventListener('scroll', pxRequest, { passive: true });
+  window.addEventListener('resize', pxRequest);
+  applyParallax();
 
   // ═══ ICON MICRO-INTERACTIONS ═══
   document.querySelectorAll('.p-icon, .fb-item, .sol-card, .social-links a').forEach(el => {
